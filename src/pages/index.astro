@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const showcases = await getCollection('showcases');
+const featuredProjects = showcases.slice(0, 3);
+---
+
+<Layout title="Home">
+  <Navbar />
+  
+  <main>
+    <section class="relative overflow-hidden bg-white">
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-slate-50"></div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="text-center max-w-4xl mx-auto">
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-100 text-indigo-700 text-sm font-mono font-medium mb-8">
+            <span class="w-2 h-2 bg-indigo-600 rounded-full mr-2 animate-pulse"></span>
+            Batch 1: Maret - Agustus 2026
+          </div>
+          
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-8 leading-tight">
+            Building the next
+            <span class="text-indigo-600">generation</span>
+            of digital founders
+          </h1>
+          
+          <p class="text-xl md:text-2xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+            CCIT Venture Studio bukan sekadar program perkuliahan. Kami adalah 
+            inkubator yang mengubah ide mahasiswa menjadi produk digital yang siap 
+            bersaing di pasar.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/showcases" class="btn-primary">
+              Lihat Showcases
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+            <a href="/mentors" class="btn-secondary">
+              Kenali Mentors
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+            Visi Kami
+          </h2>
+          <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+            Lebih dari sekadar pembelajaran teori, kami fokus pada <span class="font-semibold text-indigo-600">inkubasi nyata</span> 
+            yang menghasilkan produk berkualitas.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card p-8 text-center">
+            <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Inkubasi Intensif</h3>
+            <p class="text-slate-600">
+              6 bulan program intensif dengan mentoring langsung dari Lead Engineer 
+              dan berbagai expert industri.
+            </p>
+          </div>
+
+          <div class="card p-8 text-center">
+            <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Kolaborasi Tim</h3>
+            <p class="text-slate-600">
+              Mahasiswa dari berbagai jurusan (FSD, ISA, DCM) bekerja sama 
+              membangun produk end-to-end.
+            </p>
+          </div>
+
+          <div class="card p-8 text-center">
+            <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+              <svg class="w-7 h-7 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-3">Real-World Impact</h3>
+            <p class="text-slate-600">
+              Setiap proyek ditujukan untuk menyelesaikan masalah nyata, 
+              bukan sekadar tugas akademik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {featuredProjects.length > 0 && (
+      <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between items-end mb-12">
+            <div>
+              <p class="text-sm font-mono text-indigo-600 font-medium mb-2">FEATURED PROJECTS</p>
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Showcases Terbaru</h2>
+            </div>
+            <a href="/showcases" class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
+              Lihat Semua
+              <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((project) => (
+              <ProjectCard
+                productName={project.data.productName}
+                tagline={project.data.tagline}
+                jurusan={project.data.jurusan}
+                status={project.data.status}
+                description={project.data.description}
+                team={project.data.team}
+                githubUrl={project.data.githubUrl}
+                demoUrl={project.data.demoUrl}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="py-20 bg-slate-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Siap Membangun Masa Depan?
+        </h2>
+        <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
+          Bergabunglah dengan CCIT Venture Studio dan jadilah bagian dari 
+          generasi pendiri digital yang akan mengubah dunia.
+        </p>
+        
+        <a href="/showcases" class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-slate-900 transition-colors duration-200">
+          Jelajahi Showcases
+          <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-50 border-t border-slate-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <span class="text-xl font-bold text-indigo-600">CCIT</span>
+          <span class="text-xl font-semibold text-slate-900">Venture Studio</span>
+        </div>
+        
+        <p class="text-slate-500 text-sm">
+          2026 CCIT Venture Studio. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+</Layout>
