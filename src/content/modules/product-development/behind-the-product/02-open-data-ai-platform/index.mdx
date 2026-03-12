@@ -1,0 +1,389 @@
+---
+title: "Open Data + AI Platform"
+description: "Pelajari bagaimana Pasal.id mendemokratisasi akses hukum Indonesia dengan mengubah ribuan dokumen PDF pemerintah menjadi database terstruktur yang dapat dicari dan diakses oleh siapa saja."
+category: "Product Development"
+difficulty: "Beginner"
+pubDate: 2025-03-13
+author: "CCIT Venture Studio Team"
+tags: ["open-data", "legal-tech", "ai-integration", "pasal.id", "data-democratization"]
+type: "lesson"
+order: 2
+estimatedTime: "2-3 hours"
+prerequisites:
+  - Pengetahuan dasar tentang AI (ChatGPT, Claude, Copilot)
+  - Minat pada akses informasi publik
+---
+
+# Open Data + AI Platform
+
+## Overview
+
+**Produk:** [Pasal.id](https://pasal.id)  
+**URL:** pasal.id
+
+Pasal.id adalah platform database hukum Indonesia yang **gratis dan terbuka**. Platform ini mengubah dokumen PDF pemerintah yang sulit dinavigasi (ribuan file di website pemerintah) menjadi database terstruktur yang dapat dicari, dibaca, dan diakses oleh siapa saja.
+
+---
+
+## The Mystery
+
+Bagaimana cara membuat ribuan dokumen hukum Indonesia - yang tersebar di berbagai website pemerintah dan hanya berformat PDF - menjadi **terpusu di satu tempat** dan dapat diakses dengan mudah oleh warga biasa?
+
+**Problem:**
+- Dokumen PDF susah dicari (harus baca satu per satu)
+- Tidak ada hubungan antar peraturan (amendemen, pencabutan, perubahan)
+- Bahasa legal Indonesia kompleks
+- Hanya profesional hukum yang paham struktur hukum
+- Tidak ada fitur pencarian natural language (bahasa Indonesia)
+
+**Solution:**
+Pasal.id mengubah semua ini menjadi:
+- **Database Terstruktur**: Artikel terpecah berdasarkan Bab dan Pasal
+- **Pencarian Full-Text**: Bisa cari kata kunci dalam bahasa Indonesia
+- **Status Tracking**: Tahu peraturan mana yang masih berlaku, diubah, atau dicabut
+- **Link PDF Resmi**: Langsung ke sumber resmi peraturan.go.id
+- **Integrasi AI**: Connect langsung ke database via AI (ChatGPT, Claude)
+
+---
+
+## Behind the Scenes
+
+### Cara Kerja Pasal.id
+
+> **PDF Documents** → **Struktur Data** → **Pencarian** → **AI Layer** → **User Interface**
+
+#### Pipeline Data
+
+**1. Collection (Pengumpulan Data)**
+- **Sumber**: website pemerintah resmi (peraturan.go.id, jdih.go.id, etc.)
+- **Metode**: Scrape dan proses dokumen PDF otomatis
+- **Konten**: Ribuan peraturan dan dokumen hukum
+
+**2. Extraction (Ekstraksi Struktur)**
+- **Parsing PDF**: Baca struktur hierarkis PDF:
+  - UUD (Undang-Undang Dasar Negara)
+  - UU (Undang-Undang)
+  - PP (Peraturan Pemerintah)
+  - PERPRES (Peraturan Presiden)
+  - PERMEN (Peraturan Menteri)
+- **FRBR Standard**: Assign identifier unik untuk dokumen hukum
+- **Struktur Artikel**: 
+  - **Bab** (Kapster pembukaan)
+  - **Pasal** (Bagian dari UU)
+  - **Ayat** (Pasal/Artikel dalam bab)
+  - **Huruf kecil**: Nomor dan penjelasan
+
+**3. Full-Text Indexing (Indeksasi Teks Penuh)**
+- **Bahasa Indonesia**: Stemmer (kata dasar) untuk pencarian bahasa
+- **Searchable**: Bisa cari berdasarkan artikel, pasal, atau kata kunci
+- **Indexing**: Pencarian cepat dengan skor relevansi
+
+**4. Status Tracking (Pelacakan Status)**
+- **Status Dokumen**:
+  - ✅ Berlaku (masih mengikat hukum)
+  - ⚠️ Diubah (telah mengalami amendemen)
+  - ❌ Dicabut (tidak lagi berlaku)
+  - 🔗 Relasi: Hubungan antar peraturan (UU yang diamend, peraturan turunan)
+- **Tracking**: Tampil grafik timeline status setiap dokumen
+
+**5. API Layer (API untuk Developer)**
+- **RESTful API**: Gratis, tanpa autentikasi
+- **CORS-Enabled**: Bisa diakses dari frontend manapun
+- **Rate Limits**: 60 request/menit, 1,000/hari
+- **Endpoints**: 
+  - `GET /api/search`: Cari dokumen
+  - `GET /api/laws`: List peraturan berdasarkan tipe
+  - `GET /api/law/{id}`: Detail lengkap artikel
+  - `GET /api/law-status`: Cek status peraturan
+- **19 Jenis**: UUD, UU, PP, PERPRES, PERMEN, dll
+
+**6. AI/MCP Layer (Integrasi AI yang Unik)**
+- **MCP Server**: Model Context Protocol server pertama untuk database hukum Indonesia
+- **Claude Integration**: User bisa connect Claude AI langsung ke database Pasal.id
+- **4 AI Tools**:
+  ```javascript
+  // Di Claude CLI atau browser extension
+  const tools = {
+    'search_laws': 'Cari dokumen hukum',
+    'get_pasal': 'Ambil artikel spesifik',
+    'get_law_status': 'Cek status dokumen',
+    'list_laws': 'List semua peraturan'
+  }
+  ```
+- **MCP Protocol**: Pertama di Indonesia untuk legal data
+- **Use Case**: 
+  ```javascript
+  // Dari Claude/ChatGPT
+  "Cari UUD 1945 tentang hak asasi anak"
+  "Apa bedanya Pasal 28 tahun 2011 dengan Pasal 28 tahun 2022?"
+  "Status UUD 1945: berlaku, diubah tahun 2022, dicabut 2023"
+  ```
+
+---
+
+## Tech Stack
+
+### Frontend
+- **Framework**: Next.js (React)
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel (static export)
+
+### Database Layer
+- **Struktur Data**: Dokumen hukum terstruktur (bukan PDF flat)
+- **Standard**: FRBR URI (identifier internasional untuk dokumen hukum)
+- **Relationships**: Relasi antar dokumen (parent-child, amendments, revocations)
+
+### API Layer
+- **Framework**: RESTful API (Node.js/Express-based)
+- **Auth**: Tidak perlu (publik)
+- **Rate Limiting**: 60 req/min, 1,000/day (gratis)
+- **Features**:
+  - Full-text search bahasa Indonesia
+  - Filter berdasarkan tahun, status, tipe
+  - Pagination untuk hasil besar
+
+### AI Integration
+- **MCP Server**: Custom server untuk Model Context Protocol
+- **Database**: PostgreSQL dengan ekstensi untuk legal data
+- **Claude Integration**: Connect Claude langsung ke database
+- **Open Source**: Codebase terbuka untuk verifikasi
+
+### Infrastructure
+- **Hosting**: Railway.app (untuk MCP server)
+- **Deployment**: CI/CD pipeline (GitHub Actions)
+- **Monitoring**: UpTime tracking, error alerting
+
+---
+
+## The Simple Truth
+
+**"Hukum + Search + AI = Civic Empowerment"**
+
+Kenapa Pasal.id works:
+1. **Overcome PDF Limitation**: PDF susah dicari → Terstruktur dan dicari
+2. **Relationship Tracking**: Dokumen hukum saling menghubungi (amendemen, penggantian) → Tampil visual hubungan
+3. **Natural Language**: Query bahasa Indonesia (bukan bahasa inggris) → Hasil akurat
+4. **AI Citation**: Dari AI tapi dengan sumber resmi → Menghindari hallusinasi
+5. **Developer-Friendly**: API gratis → Developer bisa bikin app di atas Pasal.id
+6. **100% Free**: Tidak ada paywall → Akses demokratis
+
+**Pendekatan "Open Data":**
+- Bukan sekadar database → Platform untuk warga memahami hukum mereka
+- Bukan teknologi → Teknologi melayani, bukan menggantikan
+- Trust & Transparency**: Sumber resmi + codebase terbuka
+
+---
+
+## Key Insight
+
+### The "Open Data Pattern"
+
+**Take unstructured public data → Structure it → Make it searchable → Add AI integration → Democratize access**
+
+#### Kenapa Pattern Ini Efektif?
+
+1. **Value in Structuring**
+   - PDFs: Hanya mentokan (gak bisa copy, gak bisa search)
+   - Terstruktur: Copy-paste, searchable, linkable, searchable by keywords
+   - **Value**: 10x increase in utility
+
+2. **AI Integration as Differentiator**
+   - Banyak database open: TAPI semua teks
+   - Pasal.id: AI integration via MCP (pertama untuk legal data Indonesia)
+   - **First-Mover Advantage**: Menjadi standar untuk AI legal tools Indonesia
+
+3. **Network Effects**
+   - Developer app di atas Pasal.id → Lebih banyak use case
+   - Lebih banyak developer → Lebih innovation
+   - Platform effect: Pasal.id jadi lebih powerful
+
+4. **Civic Impact**
+   - Warga bisa mencari hukum yang mempengaruhi mereka
+   - Mahasiswa hukum bisa riset dengan cepat
+   - Jurnalis bisa cari referensi
+   - Pengusaha bisa cek kepatuhan
+
+#### When to Use "Open Data Pattern"?
+
+✅ **Use:**
+- Topik dengan banyak sumber data (legal, keuangan, peraturan)
+- Data yang sering berubah (amendemen, update berkala)
+- User perlu "browse & discover" (bukan mencari spesifik)
+- Ada komunitas developer (bisa bikin apps di atas platform)
+
+❌ **Don't Use:**
+- Topik statis (data yang jarang berubah)
+- Data yang sudah terstruktur dengan baik
+- Product yang butuh backend complex (B2B SaaS, marketplace)
+- User yang perlu real-time analytics
+
+---
+
+## Simple Version You Can Build
+
+### MVP: Database Hukum Spesifik
+**Tech Stack:**
+- Frontend: Astro + Tailwind (static site)
+- Data: JSON files (bisa di-update manual)
+- Backend: Tidak perlu (static site saja sudah cukup)
+
+**Fitur MVP:**
+1. **Kumpulan Artikel**
+   - Scraping atau manual untuk 10-20 dokumen
+   - Struktur sederhana: judul, tanggal, isi, link sumber
+   - Filter: berdasarkan tahun atau kategori
+
+2. **Pencarian Sederhana**
+   - Input search field
+   - Filter real-time saat mengetik
+   - Highlight keyword dalam hasil
+
+3. **Detail Page**
+   - Tampilkan artikel penuh dengan format yang enak dibaca
+   - Sidebar: Table of contents
+   - Link ke sumber resmi (peraturan.go.id)
+
+**Cara Build:**
+```bash
+# Create data structure
+mkdir -p src/content/hukum-data
+
+# Buat data JSON
+[
+  {
+    "id": "uu-1945-hak-asasi-anak",
+    "kategori": "UUD",
+    "tahun": 1945,
+    "judul": "Undang-Undang Dasar Negara 1945",
+    "deskripsi": "...",
+    "sumber": "https://peraturan.go.id"
+  }
+]
+
+# Buat page Astro (src/pages/hukum/[slug].astro)
+# Add search functionality dengan filter
+```
+
+### Advanced: API Wrapper untuk Pasal.id
+**Tech Stack:**
+- Backend: Next.js API routes
+- Database: Airtable atau Supabase (for MVP)
+- Caching: Redis (untuk rate limit)
+- AI Integration: MCP Client untuk Claude
+
+**Fitur Advanced:**
+1. **Proxy API**
+   - Cache frequent requests
+   - Rate limiting enforcement
+   - Error handling & retry logic
+   - Response caching
+
+2. **AI-Enhanced Search**
+   - Query Claude: "Cari pasal tentang pajak pendapatan"
+   - Claude returns: List + summaries + citations
+   - Fallback ke Pasal.id API jika AI gagal
+
+3. **Analytics Dashboard**
+   - Track query populer
+   - Monitor API usage
+   - User feedback collection
+
+**Cara Build:**
+```bash
+# Setup Next.js API
+npm create next-app hukum-api
+
+# Install dependencies
+npm install @anthropic-ai/sdk @modelcontextprotocol/server @supabase/supabase-js
+
+# Setup MCP server
+npx @modelcontextprotocol/server init hukum-database
+
+# Create API routes
+# app/api/search/route.ts
+# app/api/law/[id]/route.ts
+```
+
+---
+
+## Your Blueprint (Exercise)
+
+### Identifikasi Use Case
+
+**Topik apa yang ingin kamu demokratisasi?**
+
+1. **Legal/Hukum**: Regulasi teknis, peraturan komersial
+2. **Keuangan**: Laporan keuangan publik, budgeting daerah
+3. **Kesehatan**: Data statistik, laporan kesehatan, regulasi klinik
+4. **Pendidikan**: Kurikulum sekolah, data UN, jurnal ilmiah
+5. **Transportasi**: Jadwal bus kota, data rute, regulasi transportasi umum
+6. **Budaya**: Dokumentasi budaya lokal, UNESCO heritage sites
+7. **Lingkungan**: Data sosial, kekeragamaan, regulasi internasional
+
+### Reframe Problem → Solusi
+
+**Contoh: Data Pendidikan**
+
+**Problem:**
+- Data pendidikan tersebar di berbagai sumber (Kemdikbud, Kemdikbud, BPS, dll)
+- Tidak ada pusat pencarian terpadu
+- Sering berubah tiap tahun tapi tidak ada tracking perubahan
+- Mahasiswa riset dengan PDF yang besar dan sulit dicari
+
+**Solusi (Pattern Pasal.id):**
+- **Collection**: Ambil data dari semua sumber resmi
+- **Extraction**: Strukturkan sesuai format standar (Bab, Pasal, Ayat)
+- **Search**: Full-text search bahasa Indonesia + filter
+- **Status Tracking**: Tampilkan status dokumen (berlaku/diubah)
+- **API**: Gratis untuk developer buat app edukasi
+- **AI Integration**: (opsional) Query bahasa Indonesia untuk mencari
+
+### Buat MVP Version
+
+**Minimum Features:**
+1. **Data Structure**: JSON/MD files dengan 5-10 dokumen sample
+2. **Search Page**: Search bar + filter kategori
+3. **Detail Page**: Tampilkan dokumen dengan format yang enak dibaca
+4. **Source Links**: Link ke sumber resmi
+
+**Tech Stack Simple:**
+- Astro static site
+- Search: JavaScript murni (client-side search)
+- Data: JSON/MD files di src/content
+- Deployment: Vercel/Netlify (gratis)
+
+---
+
+## Real Examples
+
+### Produk Sejenis (Open Data)
+
+**OpenStreetMap** (data geografis open)
+- Maps 3 juta+ jalan
+- Searchable POI data
+- API gratis untuk developer
+- **Pattern**: Data publik → API → Developer apps → Civic tools
+
+**Wikipedia** (ensiklopedia)
+- Jutaan artikel dalam 200+ bahasa
+- Full-text search
+- API gratis
+- **Pattern**: Crowd-sourced knowledge → Structured API
+
+**Project Gutenberg** (buku domain publik)
+- 70,000+ buku domain publik
+- Downloadable dalam berbagai format
+- Open API untuk metadata
+- **Pattern**: Legacy content → Digital library
+
+**Indonesia Specific:**
+- **SatuDekom.com** - Pemda satu data pemilu
+- **Dataku Indonesia** - Database statistik publik
+- **Kementerian PUPR** - Data pemilu terbuka
+- **Pattern**: Government data → Open API → Transparansi
+
+---
+
+## Next Lesson
+
+**Week 3**: Brand Directory & Alternative Finder - BarangLokal.com

@@ -1,7 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const showcasesCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/showcases' }),
   schema: z.object({
     productName: z.string(),
     tagline: z.string(),
@@ -17,7 +18,7 @@ const showcasesCollection = defineCollection({
 });
 
 const mentorsCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/mentors' }),
   schema: z.object({
     name: z.string(),
     role: z.string(),
@@ -32,7 +33,7 @@ const mentorsCollection = defineCollection({
 });
 
 const batchesCollection = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/batches' }),
   schema: z.object({
     batchNumber: z.number(),
     name: z.string(),
@@ -51,8 +52,28 @@ const batchesCollection = defineCollection({
   }),
 });
 
+const modulesCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/modules' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    category: z.enum(['Product Development']),
+    difficulty: z.enum(['Beginner', 'Intermediate', 'Advanced']).default('Beginner'),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    author: z.string(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+    type: z.enum(['curriculum', 'lesson']).default('lesson'),
+    order: z.number().optional(),
+    estimatedTime: z.string().optional(),
+    prerequisites: z.array(z.string()).default([]),
+  }),
+});
+
 export const collections = {
   showcases: showcasesCollection,
   mentors: mentorsCollection,
   batches: batchesCollection,
+  modules: modulesCollection,
 };
