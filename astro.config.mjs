@@ -10,6 +10,13 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   integrations: [mdx()],
+  
+  markdown: {
+    shikiConfig: {
+      theme: 'github-dark',
+      wrap: true
+    }
+  },
 
   // Konfigurasi untuk GitHub Pages (username.github.io)
   // Tidak perlu base path karena ini user/organization site
