@@ -1,11 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
-import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
-const showcases = await getCollection('showcases');
-const featuredProjects = showcases.slice(0, 3);
+const batches = await getCollection('batches');
+const sortedBatches = batches.sort((a, b) => b.data.batchNumber - a.data.batchNumber);
+const latestBatch = sortedBatches[0];
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('id-ID', {
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
+};
+
+const statusColors = {
+  'Active': 'bg-green-100 text-green-800',
+  'Completed': 'bg-slate-100 text-slate-600',
+  'Upcoming': 'bg-blue-100 text-blue-800',
+};
 ---
 
 <Layout title="Home">
@@ -104,35 +117,84 @@ const featuredProjects = showcases.slice(0, 3);
       </div>
     </section>
 
-    {featuredProjects.length > 0 && (
+    {latestBatch && (
       <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-end mb-12">
             <div>
-              <p class="text-sm font-mono text-indigo-600 font-medium mb-2">FEATURED PROJECTS</p>
-              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Showcases Terbaru</h2>
+              <p class="text-sm font-mono text-indigo-600 font-medium mb-2">CURRENT BATCH</p>
+              <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Latest Batch</h2>
             </div>
-            <a href="/showcases" class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
-              Lihat Semua
+            <a href="/batches" class="text-indigo-600 font-medium hover:text-indigo-700 flex items-center">
+              Lihat Semua Batch
               <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
               </svg>
             </a>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard
-                productName={project.data.productName}
-                tagline={project.data.tagline}
-                jurusan={project.data.jurusan}
-                status={project.data.status}
-                description={project.data.description}
-                team={project.data.team}
-                githubUrl={project.data.githubUrl}
-                demoUrl={project.data.demoUrl}
-              />
-            ))}
+          <div class="card card-hover overflow-hidden max-w-4xl mx-auto">
+            <div class="p-8">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                <div class="flex items-center gap-4">
+                  <div class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span class="text-2xl font-bold text-indigo-600">
+                      #{latestBatch.data.batchNumber}
+                    </span>
+                  </div>
+                  
+                  <div>
+                    <h3 class="text-2xl font-bold text-slate-900">
+                      {latestBatch.data.name}
+                    </h3>
+                    <p class="text-slate-500 font-mono text-sm">
+                      {formatDate(latestBatch.data.startDate)} - {formatDate(latestBatch.data.endDate)}
+                    </p>
+                  </div>
+                </div>
+                
+                <span class={`badge ${statusColors[latestBatch.data.status]} flex-shrink-0`}>
+                  {latestBatch.data.status}
+                </span>
+              </div>
+              
+              <p class="text-slate-600 mb-6 leading-relaxed text-lg">
+                {latestBatch.data.description}
+              </p>
+              
+              <div class="flex items-center gap-6 pt-6 border-t border-slate-100">
+                {latestBatch.data.totalProjects && (
+                  <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    <span class="text-slate-700 font-medium">
+                      {latestBatch.data.totalProjects} Proyek
+                    </span>
+                  </div>
+                )}
+                
+                {latestBatch.data.students && (
+                  <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <span class="text-slate-700 font-medium">
+                      {latestBatch.data.students.length} Mahasiswa
+                    </span>
+                  </div>
+                )}
+                
+                <div class="ml-auto">
+                  <a href={`/batches/${latestBatch.id}`} class="inline-flex items-center text-indigo-600 font-medium hover:text-indigo-700">
+                    Lihat Detail
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -141,17 +203,18 @@ const featuredProjects = showcases.slice(0, 3);
     <section class="py-20 bg-slate-900">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-          Siap Membangun Masa Depan?
+          Program Khusus Mahasiswa CCIT
         </h2>
-        <p class="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-          Bergabunglah dengan CCIT Venture Studio dan jadilah bagian dari 
-          generasi pendiri digital yang akan mengubah dunia.
+        <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+          CCIT Venture Studio adalah program inkubasi yang <span class="font-semibold text-white">khusus untuk mahasiswa aktif CCIT semester 2 dan 4</span>. 
+          Program ini tidak terbuka untuk umum. Jika Anda ingin bergabung, pastikan Anda sudah terdaftar sebagai 
+          <span class="font-semibold text-white">mahasiswa aktif di CCIT</span>.
         </p>
-        
-        <a href="/showcases" class="inline-flex items-center px-8 py-4 border-2 border-white text-white font-medium rounded-lg hover:bg-white hover:text-slate-900 transition-colors duration-200">
-          Jelajahi Showcases
+
+        <a href="https://ccit.eng.ui.ac.id" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-200">
+          Kunjungi Website CCIT
           <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
       </div>
