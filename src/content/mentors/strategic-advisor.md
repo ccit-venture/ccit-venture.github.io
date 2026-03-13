@@ -1,11 +1,11 @@
 ---
-name: "Strategic Advisor"
+name: "Riza Muhammad Nurman, S.Kom"
 role: "Strategic Advisor"
-title: "Manajer Akademik CCIT"
+title: "Manajer Modernisasi Pendidikan CCIT"
 bio: "Manajer Akademik CCIT dengan latar belakang pendidikan dan manajemen teknologi. Berpengalaman dalam mengembangkan kurikulum yang relevan dengan kebutuhan industri dan membangun kemitraan dengan berbagai perusahaan teknologi. Berfokus pada penjaminan kualitas program dan pengembangan karir mahasiswa."
-linkedin: "https://linkedin.com/in/strategic-advisor"
-email: "advisor@ccit.edu"
-order: 2
+linkedin: ""
+email: ""
+order: 1
 ---
 
 ## Tanggung Jawab

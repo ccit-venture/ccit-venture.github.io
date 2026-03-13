@@ -49,47 +49,48 @@ const categoryIcons: Record<string, string> = {
     <!-- Categories Grid -->
     <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+        <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
           {categories.map((category) => (
             <a
               href={`/module/${category.id}`}
-              class="group relative bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-indigo-500 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              class="group relative bg-gradient-to-br from-white via-white to-slate-50 rounded-3xl border border-slate-200 overflow-hidden hover:border-indigo-400 hover:shadow-2xl transition-all duration-500"
             >
-              <!-- Top gradient bar -->
-              <div class:list={['h-1.5 bg-gradient-to-r', category.color]} />
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div class="p-8 lg:p-10">
-                <div class="flex items-start justify-between mb-6">
+              <div class="relative p-10 lg:p-12">
+                <div class="flex items-start justify-between mb-8">
                   <div class:list={[
-                    'w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-2xl',
+                    'w-20 h-20 rounded-3xl flex items-center justify-center text-white font-bold text-3xl shadow-lg',
                     'bg-gradient-to-br',
                     category.color
                   ]}>
                     {category.icon}
                   </div>
                   
-                  {category.curriculumCount > 0 ? (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 text-sm font-medium">
-                      {category.curriculumCount} Curriculum{category.curriculumCount !== 1 ? 's' : ''}
-                    </span>
-                  ) : (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-sm font-medium">
-                      Coming soon
-                    </span>
-                  )}
+                  <div class="flex flex-col items-end gap-2">
+                    {category.curriculumCount > 0 ? (
+                      <span class="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 text-white text-sm font-semibold shadow-md">
+                        {category.curriculumCount} Curriculum{category.curriculumCount !== 1 ? 's' : ''}
+                      </span>
+                    ) : (
+                      <span class="inline-flex items-center px-4 py-2 rounded-full bg-slate-200 text-slate-600 text-sm font-semibold">
+                        Coming soon
+                      </span>
+                    )}
+                  </div>
                 </div>
 
-                <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">
+                <h3 class="text-3xl font-bold text-slate-900 mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 transition-all">
                   {category.name}
                 </h3>
                 
-                <p class="text-slate-600 mb-6 leading-relaxed">
+                <p class="text-slate-600 mb-8 leading-relaxed text-lg">
                   {category.description}
                 </p>
 
-                <div class="flex items-center text-indigo-600 font-medium">
-                  <span>Explore curriculums</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="flex items-center text-indigo-600 font-semibold text-lg group-hover:translate-x-2 transition-transform">
+                  <span>Start Learning</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </div>
@@ -150,4 +151,19 @@ const categoryIcons: Record<string, string> = {
       </div>
     </section>
   </main>
+
+  <footer class="bg-slate-50 border-t border-slate-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <span class="text-xl font-bold text-indigo-600">CCIT</span>
+          <span class="text-xl font-semibold text-slate-900">Venture Studio</span>
+        </div>
+
+        <p class="text-slate-500 text-sm">
+          2026 CCIT Venture Studio. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 </Layout>

@@ -29,6 +29,7 @@ const mentorsCollection = defineCollection({
     github: z.string().optional(),
     email: z.string().optional(),
     order: z.number().default(0),
+    type: z.enum(['regular', 'guest']).default('regular'),
   }),
 });
 
@@ -42,6 +43,12 @@ const batchesCollection = defineCollection({
     status: z.enum(['Active', 'Completed', 'Upcoming']),
     description: z.string(),
     totalProjects: z.number().optional(),
+    projects: z.array(z.object({
+      name: z.string(),
+      tagline: z.string(),
+      description: z.string(),
+      status: z.string(),
+    })).optional(),
     students: z.array(z.object({
       name: z.string(),
       nim: z.string(),

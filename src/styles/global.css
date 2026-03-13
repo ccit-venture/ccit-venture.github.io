@@ -93,4 +93,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+  
+  .group-hover\:line-clamp-none {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+  }
 }

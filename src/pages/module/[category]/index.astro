@@ -90,7 +90,7 @@ const difficultyColors: Record<string, string> = {
     <section class="py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         {curriculums.length > 0 ? (
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
             {curriculums.map((curriculum) => {
               const idParts = curriculum.id.split('/');
               const curriculumId = idParts[idParts.length - 1] || '';
@@ -99,55 +99,58 @@ const difficultyColors: Record<string, string> = {
               return (
                 <a
                   href={`/module/${category}/${curriculumId}`}
-                  class="group bg-white rounded-2xl border-2 border-indigo-100 overflow-hidden hover:border-indigo-500 hover:shadow-xl transition-all duration-300"
+                  class="group relative bg-white rounded-3xl border border-slate-200 overflow-hidden hover:border-indigo-400 hover:shadow-2xl transition-all duration-500"
                 >
-                  <div class="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
+                  <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-purple-500" />
                   
-                  <div class="p-8">
-                    <div class="flex items-center gap-2 mb-4">
+                  <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/3 via-purple-500/3 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div class="relative p-8 lg:p-10">
+                    <div class="flex items-center gap-3 mb-6">
                       <span class:list={[
-                        'px-3 py-1 rounded-full text-xs font-semibold',
+                        'px-4 py-2 rounded-full text-sm font-semibold',
                         difficultyColors[curriculum.data.difficulty] || 'bg-slate-100 text-slate-800'
                       ]}>
                         {curriculum.data.difficulty}
                       </span>
                       
-                      <span class="text-xs text-slate-500 flex items-center gap-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <span class="text-sm text-slate-500 flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                         </svg>
-                        {lessons.length} Lessons
+                        {lessons.length} Lesson{lessons.length !== 1 ? 's' : ''}
                       </span>
                     </div>
 
-                    <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-purple-600 transition-all">
                       {curriculum.data.title}
                     </h3>
 
-                    <p class="text-slate-600 mb-6 line-clamp-2">{curriculum.data.description}</p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">{curriculum.data.description}</p>
 
-                    <div class="flex items-center justify-between">
-                      <div class="flex items-center gap-2 text-sm text-slate-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="flex items-center justify-between mb-8 pb-8 border-b border-slate-100">
+                      <div class="flex items-center gap-2.5 text-sm text-slate-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
-                        {curriculum.data.author}
+                        <span class="font-medium">{curriculum.data.author}</span>
                       </div>
 
                       {curriculum.data.estimatedTime && (
-                        <div class="flex items-center gap-1 text-sm text-slate-500">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div class="flex items-center gap-1.5 text-sm text-slate-600">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
-                          {curriculum.data.estimatedTime}
+                          <span class="font-medium">{curriculum.data.estimatedTime}</span>
                         </div>
                       )}
                     </div>
 
-                    <div class="mt-6 pt-6 border-t border-slate-100">
-                      <div class="flex items-center justify-between">
-                        <span class="text-sm font-medium text-indigo-600">Start Learning</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-600 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div class="flex items-center justify-between">
+                      <span class="text-base font-semibold text-indigo-600">Start Learning</span>
+                      <div class="flex items-center gap-2 text-indigo-600">
+                        <span class="text-sm text-slate-500">View lessons</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </div>
@@ -158,7 +161,7 @@ const difficultyColors: Record<string, string> = {
             })}
           </div>
         ) : (
-          <div class="text-center py-20 bg-white rounded-2xl border border-slate-200">
+          <div class="text-center py-20 bg-white rounded-3xl border border-slate-200">
             <div class="text-6xl mb-4">📚</div>
             <h3 class="text-xl font-bold text-slate-900 mb-2">No Curriculums Yet</h3>
             <p class="text-slate-600">Curriculums for this category will be added soon!</p>
@@ -167,6 +170,21 @@ const difficultyColors: Record<string, string> = {
       </div>
     </section>
   </main>
+
+  <footer class="bg-slate-50 border-t border-slate-200 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center space-x-2 mb-4 md:mb-0">
+          <span class="text-xl font-bold text-indigo-600">CCIT</span>
+          <span class="text-xl font-semibold text-slate-900">Venture Studio</span>
+        </div>
+
+        <p class="text-slate-500 text-sm">
+          2026 CCIT Venture Studio. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
 </Layout>
 
 <style>
