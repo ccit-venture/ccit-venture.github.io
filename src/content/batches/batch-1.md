@@ -195,54 +195,54 @@ students:
     class: '2FSD2'
     group: Papel.com
     year: '2025'
-  - name: Abdurrahman Wafi Adzima Ramadhan
-    nim: '2421010003'
-    class: '4ISA4'
-    group: PHOTOBOX
-    year: '2024'
-  - name: Ahmad Faiz Rabbani
-    nim: '2431030235'
-    class: CM
-    group: PHOTOBOX
-    year: '2024'
-  - name: Aidan Rabbihafiz Joe
-    nim: '2421010010'
-    class: '4FSD4'
-    group: PHOTOBOX
-    year: '2024'
-  - name: Antonio Benedictus Harianja
-    nim: '2421010025'
-    class: '4ISA4'
-    group: PHOTOBOX
-    year: '2024'
   - name: Khanza Haura
     nim: '2421010088'
-    class: '4FSD4'
-    group: PHOTOBOX
-    year: '2024'
-  - name: Muhammad Rayhan Alfaiz
-    nim: '2431030264'
-    class: CM
+    class: '4FSD2'
     group: PHOTOBOX
     year: '2024'
   - name: Vany Putri Handayani
     nim: '2421010221'
-    class: '4FSD4'
+    class: '4FSD3'
     group: PHOTOBOX
     year: '2024'
-  - name: Vincentius Aleria
-    nim: '2431030287'
-    class: CM
+  - name: Aidan Rabbihafiz Joe
+    nim: '2421010010'
+    class: '4FSD2'
+    group: PHOTOBOX
+    year: '2024'
+  - name: Abdurrahman Wafi Adzima Ramadhan
+    nim: '2421010003'
+    class: '4ISA1'
+    group: PHOTOBOX
+    year: '2024'
+  - name: Antonio Benedictus Harianja
+    nim: '2421010025'
+    class: '4ISA1'
     group: PHOTOBOX
     year: '2024'
   - name: Zahra Alifia Rahma
     nim: '2421010228'
-    class: '4ISA4'
+    class: '4ISA1'
+    group: PHOTOBOX
+    year: '2024'
+  - name: Vincentius Aleria
+    nim: '2431030287'
+    class: '4CM-AN1'
+    group: PHOTOBOX
+    year: '2024'
+  - name: Muhammad Rayhan Alfaiz
+    nim: '2431030264'
+    class: '4CM-AN1'
+    group: PHOTOBOX
+    year: '2024'
+  - name: Ahmad Faiz Rabbani
+    nim: '2431030235'
+    class: '4CM-AN1'
     group: PHOTOBOX
     year: '2024'
   - name: Zulfarida
     nim: '2421010231'
-    class: '4FSD4'
+    class: '4FSD1'
     group: PHOTOBOX
     year: '2024'
   - name: Agung Wishnu Wardana
