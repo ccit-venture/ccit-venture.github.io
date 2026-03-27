@@ -360,6 +360,21 @@ students:
     class: '2CS1'
     group: THE JESTER'S ZERO HOUR
     year: '2025'
+  - name: Muhammad Fadly Akhyar
+    nim: '2521010143'
+    class: '2CS1'
+    group: MINDS
+    year: '2025'
+  - name: Muhammad Abdul Aziz Khair
+    nim: '2521010018'
+    class: '2FSD1'
+    group: MINDS
+    year: '2025'
+  - name: Dzaki Nurpahlevi Sudrajad
+    nim: '2521010252'
+    class: '2FSD1'
+    group: MINDS
+    year: '2025'
 ---
 
 ## Timeline Program
