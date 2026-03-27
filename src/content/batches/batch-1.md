@@ -330,6 +330,36 @@ students:
     class: '-'
     group: WarasDigital.com
     year: '-'
+  - name: Kahlil Sakha Abdillah
+    nim: '2521010126'
+    class: '2AIDA2'
+    group: VISIO.ID
+    year: '2025'
+  - name: Parel
+    nim: '2521010152'
+    class: '2DM2'
+    group: VISIO.ID
+    year: '2025'
+  - name: Muhamad Ihsan Rasyad
+    nim: '2521010138'
+    class: '2CS1'
+    group: VISIO.ID
+    year: '2025'
+  - name: Nabil Pasyuhada Putra
+    nim: '2521010149'
+    class: '2AIDA2'
+    group: THE JESTER'S ZERO HOUR
+    year: '2025'
+  - name: Naufal Baihaqi Nawawi
+    nim: '2521010150'
+    class: '2AIDA2'
+    group: THE JESTER'S ZERO HOUR
+    year: '2025'
+  - name: Joe Fadlan Wahid
+    nim: '2521010256'
+    class: '2CS1'
+    group: THE JESTER'S ZERO HOUR
+    year: '2025'
 ---
 
 ## Timeline Program
