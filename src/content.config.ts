@@ -64,7 +64,7 @@ const modulesCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    category: z.enum(['Product Development']),
+    category: z.enum(['Product Development', 'Tech Lab', 'Venture Studio']),
     difficulty: z.enum(['Beginner', 'Intermediate', 'Advanced']).default('Beginner'),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),

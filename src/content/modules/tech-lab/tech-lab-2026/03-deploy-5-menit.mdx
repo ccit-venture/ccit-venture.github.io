@@ -1,0 +1,89 @@
+---
+title: 'Sesi 3: Deploy ke Internet dalam 5 Menit'
+description: 'Pahami server, hosting, URL, dan GitHub — lalu ikuti tutorial deploy biar halaman HTML pertamamu punya URL live yang bisa dibuka siapa pun.'
+category: 'Tech Lab'
+difficulty: 'Beginner'
+pubDate: 2026-08-03
+author: 'CCIT Venture Studio'
+tags: ['deploy', 'github', 'vercel', 'hosting']
+type: 'lesson'
+order: 3
+estimatedTime: '90 menit (termasuk praktik)'
+prerequisites: ['Sesi 2: AI Itu Teman Ngoding']
+---
+
+## Apa yang Akan Kamu Pelajari
+
+- Server, hosting, URL, domain — kosakata yang wajib paham
+- Kenapa deploy itu penting
+- GitHub: repo, commit, push
+- Alur deploy: dari kode di laptop sampai URL live
+- Auto-deploy: update tanpa repot
+
+## Server, Hosting, URL, Domain
+
+| Istilah | Arti | Analogi |
+|---------|------|---------|
+| Server | Komputer khusus yang menyala 24 jam dan menyimpan aplikasi | Bangunan restoran |
+| Hosting | Layanan yang menyediakan server (Vercel, Netlify, Railway) | Tempat menyewa lokasi |
+| URL | Alamat yang kamu ketik untuk membuka aplikasi (https://nama-proyek.vercel.app) | Alamat teknis |
+| Domain | URL yang dibeli, lebih pendek dan gampang diingat (ccit.id) | Merek alamat |
+
+Untuk hari ini cukup paham tiga kata: hosting, URL, dan repo GitHub.
+
+## Kenapa Deploy Itu Penting
+
+- **Bisa diakses orang lain** — file di laptop hanya bisa dibuka kamu
+- **Hidup 24 jam** — server tidak tidur; kamu boleh tidur
+- **Gampang dibagikan** — cukup kirim satu URL, di chat atau bio Instagram
+
+**Produk yang belum di-deploy bukan produk — itu file yang nyangkut di laptop.**
+
+## GitHub: Tempat Kode Kamu Tinggal
+
+- **Repository (repo)** — folder project kamu di cloud
+- **Commit** — simpanan versi, "checkpoint"
+- **Push** — mengirim kode ke GitHub
+
+Kenapa lewat GitHub dulu? GitHub adalah cloud untuk kode: aman, ada riwayat versi, dan Vercel butuh kode dari GitHub untuk auto-deploy. Untuk hari ini cukup 3 gerakan: buat repo → upload file → selesai. Git lewat terminal dipelajari belakangan.
+
+## Alur Deploy: 4 Langkah
+
+```
+1. Bikin index.html di laptop → 2. Upload ke repo GitHub → 3. Import repo di Vercel → 4. Dapat URL live
+```
+
+Kenapa file utama harus bernama `index.html`? Karena itulah nama file yang otomatis dibuka pertama kali oleh server. Kalau namanya beda, halaman 404.
+
+**Langkah detailnya ada di [Tutorial: Deploy Pertama Kamu ke Vercel](tutorial-deploy-vercel) — ikuti sampai kamu punya URL live.**
+
+## Auto-Deploy: Update Tanpa Repot
+
+Setiap kali kode di GitHub berubah → Vercel otomatis memperbarui versi live-nya. Kamu cukup upload file baru ke repo. Tidak perlu deploy ulang manual.
+
+Coba sekarang: ubah teks di index.html → upload ulang ke repo → tunggu 1-2 menit → buka ulang URL kamu. Perubahannya sudah muncul tanpa menyentuh Vercel.
+
+## Masalah Umum & Solusinya
+
+- **404 Not Found / halaman kosong** — cek nama file utama, harus persis `index.html` (huruf kecil semua)
+- **Repo tidak muncul di daftar Vercel** — pastikan akun GitHub yang dihubungkan sama, repo dibuat duluan, lalu refresh
+- **Perubahan tidak muncul** — tunggu 1-2 menit, refresh browser, pastikan file menggantikan yang lama
+
+Stuck? Error itu bukan kegagalan — itu bahan belajar. Tanya ke Gemini sambil tempel pesan errornya.
+
+## Ringkasan
+
+- Server = komputer 24 jam; hosting = layanannya; URL = alamatnya
+- GitHub = cloud kode: repo, commit, push
+- Alur deploy: index.html → GitHub → Vercel → URL live
+- Auto-deploy: ubah kode, upload, otomatis update
+- File utama harus bernama index.html
+
+## Latihan
+
+1. Deploy halaman pertama kamu, kirim URL ke grup
+2. Ubah teksnya, upload ulang, tunjukkan auto-deploy
+3. Bikin halaman kedua dengan hobi kamu, deploy juga
+4. Kalau ada error, tanya Gemini dengan pesan error aslinya
+
+Lanjut ke [Sesi 4: Ngintip Codebase Produk Nyata](04-ngintip-codebase).

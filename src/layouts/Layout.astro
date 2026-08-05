@@ -17,6 +17,12 @@ const { title, description = 'CCIT Venture Studio - Building the next generation
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/og-cover.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/images/og-cover.jpg" />
     <title>{title} | CCIT Venture Studio</title>
   </head>
   <body class="min-h-screen bg-slate-50 text-slate-900 antialiased">

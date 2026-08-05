@@ -4,7 +4,7 @@ import Layout from '../../../layouts/Layout.astro';
 import Navbar from '../../../components/Navbar.astro';
 
 export async function getStaticPaths() {
-  const categories = ['product-development'];
+  const categories = ['product-development', 'tech-lab', 'venture-studio'];
   return categories.map(cat => ({ params: { category: cat } }));
 }
 
@@ -15,6 +15,20 @@ const categoryInfo: Record<string, { name: string; description: string; icon: st
     icon: '🚀',
     color: 'indigo',
     gradient: 'from-indigo-500 to-purple-500'
+  },
+  'tech-lab': {
+    name: 'Tech Lab',
+    description: 'Onboarding 6 minggu untuk mahasiswa baru: cara kerja aplikasi, AI sebagai partner belajar, deploy, membaca codebase, dan produk mini pertamamu.',
+    icon: '🧑‍💻',
+    color: 'teal',
+    gradient: 'from-teal-500 to-cyan-500'
+  },
+  'venture-studio': {
+    name: 'Venture Studio',
+    description: 'Setelah lulus Tech Lab: bikin MVP cepat, tes ke pengguna nyata, dan olah feedback — inti cara kerja produk sungguhan.',
+    icon: '💡',
+    color: 'violet',
+    gradient: 'from-violet-500 to-fuchsia-500'
   }
 };
 

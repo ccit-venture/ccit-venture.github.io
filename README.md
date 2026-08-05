@@ -12,9 +12,19 @@ Landing page resmi untuk program CCIT Venture Studio - sebuah program inkubasi y
 ## Fitur
 
 - **Home**: Hero section dengan tagline "Building the next generation of digital founders"
+- **Modules**: Materi belajar online — kategori **Tech Lab** (onboarding 6 sesi untuk mahasiswa baru) dan **Venture Studio** (MVP & feedback)
 - **Showcases**: Grid kartu proyek dengan data dari Content Collections
 - **Mentors**: Profil mentor dengan informasi lengkap
 - **Batches**: Riwayat program inkubasi
+
+## Materi (Modules)
+
+Materi belajar tersedia sebagai learning modules di `/module`:
+
+- **Tech Lab** (`src/content/modules/tech-lab/`) — 6 sesi onboarding + 2 tutorial: cara kerja aplikasi, AI sebagai partner belajar, deploy, membaca codebase, produk mini, open house
+- **Venture Studio** (`src/content/modules/venture-studio/`) — MVP cepat, tes feedback tanpa backend, siklus bikin → tes → ubah
+
+Konten sumber (markdown lengkap) ada di direktori materi program. Tambah kategori baru cukup: buat folder di `src/content/modules/<slug>/`, daftarkan nama kategori di `src/content.config.ts` dan `categoryInfo` di halaman module.
 
 ## Struktur Folder
 

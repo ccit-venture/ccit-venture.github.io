@@ -1,0 +1,116 @@
+---
+title: 'Tutorial: Deploy Pertama Kamu ke Vercel'
+description: 'Langkah demi langkah: dari file index.html di laptop sampai URL live yang bisa dibuka siapa pun — termasuk auto-deploy dan solusi masalah umum.'
+category: 'Tech Lab'
+difficulty: 'Beginner'
+pubDate: 2026-08-03
+author: 'CCIT Venture Studio'
+tags: ['tutorial', 'deploy', 'vercel', 'github']
+type: 'lesson'
+order: 4
+estimatedTime: '30 menit'
+prerequisites: ['Sesi 3: Deploy ke Internet dalam 5 Menit (konsep)']
+---
+
+Tutorial pendamping [Sesi 3: Deploy ke Internet dalam 5 Menit](03-deploy-5-menit). Baca dulu konsepnya di sesi itu, lalu ikuti langkah ini dari awal sampai akhir.
+
+## Langkah 1: Buat Akun GitHub
+
+1. Buka github.com
+2. Klik "Sign up" dan isi form: email, password, username
+3. Verifikasi email yang dikirim ke inbox kamu
+
+Selesai — kamu sudah punya akun GitHub.
+
+## Langkah 2: Buat Repository
+
+1. Login ke GitHub, klik tombol "+" di pojok kanan atas, pilih "New repository"
+2. Nama repository: `tech-lab-sesi-3`
+3. Centang opsi "Add a README file"
+4. Klik "Create repository"
+
+## Langkah 3: Siapkan Kode di Komputer
+
+Buat folder baru di laptop bernama `tech-lab-sesi-3`. Di dalamnya buat file bernama `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Pertamaku</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #F5F7FA;
+      color: #1E293B;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: white;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Halo, aku mahasiswa CCIT</h1>
+    <p>Ini halaman pertamaku yang online.</p>
+  </div>
+</body>
+</html>
+```
+
+Boleh juga pakai halaman hasil latihan sesi 2, yang penting ada file `index.html`. Kenapa harus `index.html`? Karena itu nama file yang otomatis dibuka pertama kali oleh server.
+
+## Langkah 4: Upload Kode ke GitHub
+
+Cara paling mudah untuk pemula, langsung lewat browser:
+
+1. Di halaman repository kamu, klik "Add file" lalu "Upload files"
+2. Seret file `index.html` ke area upload
+3. Klik "Commit changes"
+
+(Cara yang lebih profesional adalah lewat Git di terminal, tapi untuk sekarang upload lewat browser sudah cukup. Git dipelajari di sesi berikutnya.)
+
+## Langkah 5: Deploy ke Vercel
+
+1. Buka vercel.com, klik "Sign up"
+2. Pilih "Continue with GitHub" dan ikuti instruksi otorisasi
+3. Setelah masuk, klik "Add New Project"
+4. Cari repository `tech-lab-sesi-3` di daftar, klik "Import"
+5. Jangan ubah pengaturan apa pun, langsung klik "Deploy"
+6. Tunggu beberapa detik sampai muncul tulisan "Congratulations"
+
+## Langkah 6: Buka URL Kamu
+
+1. Di halaman hasil deploy, klik "Visit" atau salin URL yang muncul
+2. Halaman kamu terbuka di browser
+3. Bagikan URL itu ke teman atau ke grup Tech Lab
+
+Selamat, kamu sudah deploy pertama kali. Kamu sekarang punya alamat di internet: `nama-kamu-tech-lab-sesi-3.vercel.app` atau sejenisnya.
+
+## Langkah 7: Update Kode (Auto-Deploy)
+
+Ubah teks di `index.html`, misalnya ganti "Halo, aku mahasiswa CCIT" menjadi "Halo, aku developer pemula". Upload ulang file ke repository GitHub (langkah 4). Tunggu 1-2 menit, lalu buka ulang URL kamu. Perubahannya otomatis muncul, tanpa perlu deploy ulang manual.
+
+Ini yang disebut **auto-deploy**: setiap kali kode di GitHub berubah, Vercel otomatis memperbarui versi live-nya.
+
+## Masalah yang Sering Terjadi dan Solusinya
+
+- **Halaman muncul "404 Not Found" atau kosong** — file utamamu tidak bernama `index.html`. Periksa nama file, harus persis `index.html` (huruf kecil semua).
+- **Tidak menemukan repository di daftar Vercel** — pastikan akun GitHub yang dihubungkan sama dengan repository kamu, dan repository sudah dibuat sebelum membuka Vercel. Coba refresh.
+- **Perubahan tidak muncul setelah upload ulang** — auto-deploy butuh 1-2 menit. Tunggu lalu refresh. Pastikan file yang di-upload menggantikan file lama, bukan jadi file baru dengan nama lain.
+- **Halaman tampil beda di HP dan laptop** — wajar, karena lebar layar berbeda. Untuk materi ini tidak masalah.
+
+## Selesai
+
+Kembali ke [Sesi 3: Deploy ke Internet dalam 5 Menit](03-deploy-5-menit) untuk latihan dan cek pemahaman.

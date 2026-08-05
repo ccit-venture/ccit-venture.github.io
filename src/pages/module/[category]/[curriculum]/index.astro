@@ -13,7 +13,7 @@ export async function getStaticPaths() {
     const idParts = moduleItem.id.split('/');
       if (idParts.length >= 2 && moduleItem.data.type === 'curriculum') {
       // This is a curriculum index
-      const category = 'product-development';
+      const category = idParts[0];
       const curriculumName = idParts[idParts.length - 1];
       curriculumIds.add(`${category}/${curriculumName}`);
     }
@@ -55,6 +55,16 @@ const categoryInfo: Record<string, { name: string; color: string; gradient: stri
     name: 'Product Development',
     color: 'indigo',
     gradient: 'from-indigo-500 to-purple-500'
+  },
+  'tech-lab': {
+    name: 'Tech Lab',
+    color: 'teal',
+    gradient: 'from-teal-500 to-cyan-500'
+  },
+  'venture-studio': {
+    name: 'Venture Studio',
+    color: 'violet',
+    gradient: 'from-violet-500 to-fuchsia-500'
   }
 };
 

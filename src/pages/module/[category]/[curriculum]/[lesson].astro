@@ -17,7 +17,7 @@ export async function getStaticPaths() {
         return null;
       }
       
-      const category = 'product-development';
+      const category = idParts[0];
       const curriculum = idParts[1];
       const lessonId = idParts[2];
       
@@ -67,6 +67,16 @@ const categoryInfo = {
     name: 'Product Development',
     color: 'indigo',
     gradient: 'from-indigo-500 to-purple-500'
+  },
+  'tech-lab': {
+    name: 'Tech Lab',
+    color: 'teal',
+    gradient: 'from-teal-500 to-cyan-500'
+  },
+  'venture-studio': {
+    name: 'Venture Studio',
+    color: 'violet',
+    gradient: 'from-violet-500 to-fuchsia-500'
   }
 };
 

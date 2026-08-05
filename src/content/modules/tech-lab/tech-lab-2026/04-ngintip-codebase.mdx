@@ -1,0 +1,110 @@
+---
+title: 'Sesi 4: Ngintip Codebase Produk Nyata'
+description: 'Belajar membaca kode orang lain: struktur folder, README sebagai pintu masuk, tiga senjata GitHub, dan strategi 6 langkah membaca codebase.'
+category: 'Tech Lab'
+difficulty: 'Beginner'
+pubDate: 2026-08-03
+author: 'CCIT Venture Studio'
+tags: ['codebase', 'github', 'reading-code']
+type: 'lesson'
+order: 5
+estimatedTime: '90 menit'
+prerequisites: ['Sesi 3: Deploy ke Internet dalam 5 Menit']
+---
+
+## Apa yang Akan Kamu Pelajari
+
+- Codebase & repository
+- Struktur folder: kenapa rapi itu penting
+- README dulu: pintu masuk sebuah project
+- Navigasi GitHub: Go to File, History, Blame
+- Strategi 6 langkah membaca codebase
+- Praktik: baca repo produk batch 1
+
+Membaca kode itu keterampilan yang dilatih, bukan bakat. Di dunia kerja, membaca kode itu 80% pekerjaan developer.
+
+## Codebase & Repository
+
+- **Codebase** — seluruh kode satu produk: frontend, backend, database, konfigurasi, dokumentasi. Analogi: seluruh isi restoran — resep, menu, denah, jadwal staf.
+- **Repository (repo)** — codebase yang tinggal di GitHub, punya riwayat versi, bisa dibaca siapa pun (kalau publik).
+
+Miskonsepsi yang harus dihilangkan:
+
+- "Codebase orang lain itu rumit, aku gak akan paham" → kamu tidak perlu paham semuanya. Cukup satu alur dulu.
+- "Baca kode = baca baris demi baris" → salah. Kamu baca dengan tujuan, bukan berurutan.
+- "Paling penting itu nulis kode" → membaca kode itu 80% pekerjaan developer.
+
+## Struktur Folder: Kenapa Rapi Itu Penting
+
+```
+project-ku/
+├── README.md
+├── index.html
+├── style.css
+├── script.js
+└── assets/
+    └── gambar/
+```
+
+Folder = lemari; file = isinya. Nama yang jelas = bisa ditebak isinya.
+
+Kenapa struktur penting? Kamu bisa menemukan file tanpa membaca semua, tim bisa bekerja tanpa tabrakan, dan pola yang sama dipakai project besar (README di atas, kode di folder, aset terpisah). Kalau kamu bikin project sendiri, biasakan struktur rapi sejak hari pertama — itu investasi.
+
+## Baca README Dulu
+
+**README.md = pintu masuk project. File pertama yang harus kamu buka — bukan file kode.**
+
+Tiga hal yang kamu cari di README:
+
+1. Produk ini ngapain? (satu paragraf di bagian atas)
+2. Pakai teknologi apa? (list, biasanya di bagian instalasi)
+3. Cara menjalankannya? (perintah setup & start)
+
+Selesai baca README, kamu sudah bisa menebak isi folder sebelum membukanya. Itu kemampuan yang jarang dimiliki pemula.
+
+## Navigasi GitHub: 3 Senjata
+
+1. **Go to File (tombol T)** — langsung melompat ke file mana pun dengan mengetik namanya. Cara tercepat cari file di repo besar.
+2. **History** — klik file → History: lihat semua perubahan file itu dari awal. Klik satu perubahan → lihat baris yang ditambah/dihapus.
+3. **Blame** — lihat siapa yang menulis baris kode itu, kapan, dan pesan commit-nya. Menjawab: "kenapa baris ini ada?"
+
+History & Blame = fitur yang membedakan orang yang cuma "buka" GitHub dengan yang "baca" GitHub.
+
+## Strategi 6 Langkah Membaca Codebase
+
+```
+1. Baca README (produk & teknologi) → 2. Petakan struktur folder → 3. Temukan file utama → 4. Ikuti satu alur saja → 5. Cari pemakaian fungsi itu → 6. Target satu alur, bukan seluruh produk
+```
+
+Langkah 6 adalah aturan mainnya: **jangan baca semua file.** Pilih satu alur kecil ("apa yang terjadi saat user login?"), ikuti alur itu dari frontend sampai database, dan abaikan sisanya — itu untuk kunjungan berikutnya.
+
+Baca file → catat satu pertanyaan → cari jawabannya di file berikutnya.
+
+## Praktik: Baca Repo Produk Batch 1
+
+Tugas berpasangan — satu alur, 20 menit:
+
+Pilih salah satu repo produk batch 1 (CampusCash, Sat Set Tap, SalesLedger). Ikuti strategi 6 langkah sampai kamu bisa menjawab 5 pertanyaan:
+
+1. Produk ini ngapain, pakai teknologi apa? (README)
+2. File mana yang paling penting? (struktur)
+3. Apa yang terjadi saat user klik tombol utama? (alur)
+4. Data apa yang disimpan? (database)
+5. Satu hal yang bikin kamu kagum / bingung? (Blame & History untuk menelusuri)
+
+## Ringkasan
+
+- Codebase = seluruh kode produk; repo = rumahnya di GitHub
+- README dulu: produk ngapain, teknologi apa, cara jalan
+- 3 senjata GitHub: Go to File (T), History, Blame
+- Baca dengan tujuan: satu alur, bukan semua file
+- Kamu tidak perlu paham semuanya
+
+## Latihan
+
+1. Buka repo project yang kamu deploy di sesi 3 — terapkan 6 langkah
+2. Tulis README untuk project kamu sendiri (kalau belum ada)
+3. Telusuri satu baris kode favorit di repo batch 1 pakai Blame
+4. Latihan rutin: baca satu file kecil orang lain tiap minggu
+
+Lanjut ke [Sesi 5: Bikin Produk Mini Pertama Kamu](05-produk-mini-pertama).

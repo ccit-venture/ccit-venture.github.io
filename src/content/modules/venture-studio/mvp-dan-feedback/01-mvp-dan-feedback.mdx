@@ -1,0 +1,161 @@
+---
+title: 'MVP Cepat: Bikin, Tes, Dapetin Feedback'
+description: 'Kenapa kecepatan itu strategi, apa itu MVP, kenapa HTML statis sudah cukup untuk tes ide, cara mencari feedback yang jujur, dan cara mengolahnya.'
+category: 'Venture Studio'
+difficulty: 'Beginner'
+pubDate: 2026-08-03
+author: 'CCIT Venture Studio'
+tags: ['mvp', 'feedback', 'statis-html', 'iterasi']
+type: 'lesson'
+order: 1
+estimatedTime: '120 menit'
+prerequisites: ['Tech Lab: Sesi 5 Bikin Produk Mini Pertama Kamu']
+---
+
+## Apa yang Akan Kamu Pelajari
+
+- Kenapa kecepatan itu strategi, bukan sekadar semangat
+- Apa itu MVP, dan bedanya dengan prototype dan produk akhir
+- Kenapa HTML statis sudah cukup untuk mengetes mayoritas ide — backend boleh nanti
+- Cara memilih satu fitur yang bisa dites dalam satu hari
+- Cara mencari feedback yang jujur, dan cara mengolahnya
+
+## Kenapa Cepat Itu Penting
+
+Kesalahan terbesar orang yang baru belajar bikin produk bukanlah kode yang jelek — tapi **menghabiskan berbulan-bulan membangun sesuatu yang ternyata tidak ada yang mau pakai**. Mayoritas ide produk gagal bukan karena programmernya tidak pintar, tapi karena tidak ada orang yang benar-benar butuh.
+
+Karena itu ada satu aturan yang di atas segalanya:
+
+> **Kurangi waktu antara "punya ide" dan "tahu apakah ide ini layak".**
+
+Cepat bukan berarti asal-asalan. Cepat berarti: bikin versi sekecil mungkin, tunjukkan ke orang, dengar, lalu ubah.
+
+**Analogi restoran.** Kamu tidak akan memasak semua 50 menu dulu, lalu membuka gerai besar. Kamu mulai dengan satu menu unggulan di stan kecil, mendengarkan komentar orang, lalu mengembangkan menu dari situ.
+
+## Apa Itu MVP (dan Bukan Apa-apa)
+
+**MVP = Minimum Viable Product** — versi paling kecil dari ide kamu yang masih bisa dites ke orang sungguhan.
+
+- **Minimum** — cuma fitur inti. Satu masalah, satu fitur, satu target pengguna.
+- **Viable** — masih cukup berfungsi untuk dipakai. Bukan gambar, bukan cerita, bukan slide.
+
+Bukan prototype (dibuat untuk menunjukkan bentuk, biasanya ke investor), bukan produk akhir (penuh fitur dan polesan). Tujuan MVP hanya satu: **mendapatkan feedback dari pengguna nyata secepat mungkin.**
+
+| Ide | Bukan MVP-nya (terlalu besar) | MVP-nya (cukup untuk dites) |
+|-----|-------------------------------|------------------------------|
+| Aplikasi nyari kost | Login, peta, filter, chat pemilik | Satu halaman berisi daftar 5 kost + link WhatsApp pemilik |
+| Aplikasi catat utang | Akun, sinkronisasi, pengingat otomatis | Satu halaman form yang kirim catatan ke WhatsApp kamu sendiri |
+| Platform belajar bareng | Kelas, forum, sertifikat | Satu halaman berisi materi + tautan grup WhatsApp |
+
+## Aturan Pertama: HTML Statis Itu Sudah Cukup (Backend Boleh Nanti)
+
+Bagian paling penting. Baca dua kali.
+
+Kebanyakan pemula berhenti sebelum mulai karena membayangkan produk "harus punya" database, server, login, dan API. Padahal:
+
+> **Mayoritas ide bisa dites dengan tiga file yang sudah kamu kenal dari Tech Lab: `index.html`, `style.css`, dan `script.js`.**
+
+Kenapa backend tidak diperlukan untuk tes awal?
+
+1. **Kamu belum tahu apakah orang mau memakai ide kamu.** Kalau idenya ternyata tidak diminati, kamu baru kehilangan 1 hari untuk HTML — bukan 3 bulan untuk server.
+2. **Backend itu lama dan rumit.** Waktunya bisa kamu pakai untuk hal yang lebih penting: belajar dari pengguna.
+
+Yang bisa dites dengan HTML statis: landing page, katalog, form (lewat link WhatsApp/email), halaman konten, portofolio, waitlist.
+
+Kapan kamu benar-benar butuh backend? Tiga tanda saja:
+
+1. **Login** — orang perlu punya akun sendiri
+2. **Pembayaran** — transaksi uang sungguhan
+3. **Data permanen antar-pengguna** — data harus tersimpan di server
+
+Kalau belum ada ketiganya, kamu belum butuh backend. Butuh data "hidup"? Pakai jalan tengah tanpa server: **Google Form, Google Sheets, atau WhatsApp** — gratis, sudah punya "backend"-nya sendiri.
+
+## Satu Fitur, Bukan Satu Produk
+
+> **Satu fitur, satu masalah, satu orang target.**
+
+1. Tulis semua fitur yang ada di kepalamu
+2. Pilih **satu** yang paling penting untuk target penggunamu
+3. Buang sisanya — simpan daftarnya untuk versi berikutnya
+
+Tes sederhana: **kalau fitur ini tidak ada, apakah pengguna tetap mau memakai produk kamu?** Kalau ya, fitur itu bukan fitur utamamu.
+
+Cara membangun cepat: gunakan [Tutorial Halaman Profil](/module/tech-lab/tech-lab-2026/tutorial-halaman-profil) sebagai kerangka — struktur tiga filenya sama persis, yang diganti hanya isinya. Target: dari ide ke halaman yang bisa dites **dalam 1 hari (2-4 jam kerja)**.
+
+## Cara Nyari Feedback (yang Bener)
+
+**Kesalahan nomor satu:** bertanya ke teman dekat, "gimana? bagus gak?" — dan mendapat jawaban "bagus deh". Itu feedback palsu. Teman dekat tidak mau menyakiti perasaanmu.
+
+**Yang kamu cari adalah pengguna nyata** — orang yang benar-benar punya masalah yang produkmu selesaikan. Cari di kelasmu, organisasimu, komunitas online. Bukan yang terdekat, tapi yang punya masalah.
+
+**Cara bertanya yang benar:**
+
+1. **Jangan menjelaskan dulu.** Biarkan mereka mencoba sendiri. Perhatikan di mana mereka berhenti dan bingung.
+2. **Minta mereka berpikir keras sambil mencoba** (think aloud): "Coba bilang apa yang kamu pikirkan saat membuka halaman ini."
+3. **Tanya hal yang spesifik, bukan ya/tidak.** "Fitur apa yang paling kamu butuhkan?" — bukan "kamu suka gak?".
+4. **Tanya soal perilaku, bukan opini.** "Kamu bakal membuka ini setiap hari gak?" — bukan "menurutmu ini keren gak?".
+5. **Diam setelah bertanya.** Jangan mengisi keheningan dengan pembelaan.
+
+Aturan emas: **satu pengamatan perilaku lebih berharga daripada sepuluh pujian.**
+
+## Setelah Dapat Feedback: Ubah atau Buang
+
+Feedback adalah data, bukan vonis. Semua feedback lewat tiga keranjang:
+
+| Keranjang | Isinya | Contoh |
+|-----------|--------|--------|
+| **Ubah sekarang** | Hal yang membuat orang buntu atau salah paham | "Aku nyari tombol daftar selama 2 menit" |
+| **Coba** | Ide bagus tapi belum tentu — uji di versi berikutnya | "Boleh tambahin filter?" |
+| **Simpan** | Permintaan fitur baru yang belum waktunya | "Tambahin fitur chat dong" |
+
+Bedakan **opini** ("aku gak suka warnanya") vs **perilaku** ("aku mencarinya 2 menit dan gak ketemu"). Yang direspons duluan: perilaku.
+
+Pola paling umum di MVP pertama: **orang tidak paham apa yang bisa dilakukan produk kamu dalam 10 detik pertama.** Solusinya hampir selalu: perjelas judul, tambah satu kalimat penjelas, dan satu tombol yang jelas.
+
+Feedback negatif bukan kegagalan — itu informasi termurah yang bisa kamu beli.
+
+## Siklus Lengkap: Bikin → Tes → Feedback → Ubah
+
+```
+Ide → pilih 1 fitur → HTML statis (1 hari) → kasih ke 5 orang → dengar → ubah → ulangi
+```
+
+**Studi kasus: papan deadline tugas.**
+
+- Hari 1: bikin satu halaman HTML berisi daftar deadline mata kuliah. Deploy.
+- Tes: minta 3 teman sekelas membukanya dari HP sambil diperhatikan.
+- Temuan: tidak ada yang membukanya lagi setelah hari pertama. "Sudah aku lihat, terus kenapa?"
+- Analisis: produknya statis — sekali dilihat, tidak ada alasan untuk balik.
+- Ubah: tambah bagian "deadline minggu ini" yang otomatis menyorot tugas mendekat, pakai beberapa baris JavaScript. Tanpa database.
+- Tes lagi: orang balik lagi, karena setiap minggu ada yang baru.
+- Pelajaran: yang dibutuhkan bukan database, tapi **alasan untuk kembali**. Satu baris JavaScript menyelesaikan hal yang "backend" tidak akan bisa.
+
+Hampir tidak ada MVP pertama yang langsung benar. Yang menentukan bukan MVP pertama, tapi seberapa cepat kamu masuk ke iterasi kedua, ketiga, dan seterusnya.
+
+## Latihan
+
+1. Tulis 1 ide produk (bisa dari tugas kuliah, ide jualan, atau kebutuhan organisasimu)
+2. Tulis **1 fitur utama** dari ide itu
+3. Jawab: kenapa fitur ini bisa dites tanpa backend? Kalau terasa butuh backend, ubah bentuknya (Google Form/WhatsApp/Spreadsheet) sampai bisa tanpa server
+4. Tulis 5 pertanyaan yang akan kamu tanyakan ke pengguna — dan pastikan tidak ada satu pun yang berbentuk "bagus gak?"
+5. Tulis nama 5 orang pertama yang akan kamu ajak tes (yang punya masalahnya, bukan yang sayang kamu)
+6. Target waktu: langkah 1-5 dalam 30 menit, lalu bikin halamannya (pakai tutorial halaman profil) dalam 2-4 jam, deploy, dan tes
+
+## Cek Pemahaman
+
+1. Apa perbedaan MVP dengan prototype? Dengan produk akhir?
+2. Kenapa HTML statis cukup untuk mayoritas ide yang mau dites? Sebutkan 2 contoh ide yang bisa dites tanpa backend.
+3. Apa 3 tanda bahwa sebuah ide benar-benar butuh backend?
+4. Kenapa bertanya "kamu suka gak?" ke teman dekat menghasilkan feedback yang menyesatkan?
+5. Apa perbedaan opini dan perilaku dalam feedback? Mana yang harus kamu respons duluan?
+6. Kamu mendapat feedback "tambahin fitur chat dong". Masuk keranjang yang mana? Kenapa?
+
+## Ringkasan
+
+- **Kecepatan adalah strategi** — makin cepat ide dites, makin murah belajarnya
+- **MVP** = versi paling kecil yang masih bisa dipakai dan dites oleh orang nyata
+- **HTML statis sudah cukup** untuk mayoritas ide — backend hanya perlu kalau ada login, pembayaran, atau data permanen
+- **Satu fitur, satu masalah, satu orang target**
+- **Feedback jujur datang dari pengguna nyata**, lewat pengamatan perilaku, dengan pertanyaan spesifik
+- **Setelah feedback**: ubah yang membuat buntu, coba yang bagus, simpan yang lain
+- **Siklus**: bikin → tes → feedback → ubah → ulangi

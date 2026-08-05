@@ -1,0 +1,104 @@
+---
+title: 'Sesi 1: Gimana Sebenernya Aplikasi Dibuat'
+description: 'Pahami empat bagian aplikasi — frontend, backend, database, hosting — lewat analogi restoran, dan lihat bagaimana semuanya bekerja saat kamu menekan satu tombol.'
+category: 'Tech Lab'
+difficulty: 'Beginner'
+pubDate: 2026-08-03
+author: 'CCIT Venture Studio'
+tags: ['dasar', 'frontend', 'backend', 'database', 'hosting']
+type: 'lesson'
+order: 1
+estimatedTime: '60-90 menit'
+prerequisites: ['Tidak ada. Sesi ini murni konsep.']
+---
+
+## Apa yang Akan Kamu Pelajari
+
+- Empat bagian aplikasi: frontend, backend, database, hosting
+- Analogi restoran supaya gampang diingat
+- Alur request-response dalam hitungan detik
+- Studi kasus produk nyata Venture Studio batch 1
+
+## Bayangkan Aplikasi Itu Restoran
+
+| Bagian Aplikasi | Analogi Restoran | Tugasnya |
+|-----------------|------------------|----------|
+| Frontend | Ruang makan | Semua yang tampak dan bisa disentuh: menu, meja, dekorasi |
+| Backend | Dapur | Mengolah pesanan, menjalankan aturan, tidak terlihat dari ruang makan |
+| Database | Gudang | Bahan baku dan catatan stok, tersimpan rapi di rak berlabel |
+| Hosting | Lokasi restoran | Alamat tetap tempat restoran berdiri, buka 24 jam |
+
+Gunakan analogi ini sepanjang belajar. Setiap kali menemukan istilah asing, kembalikan ke meja restoran.
+
+## Frontend: Bagian yang Kamu Lihat dan Sentuh
+
+Frontend adalah semua yang tampil di browser. Tiga bahannya:
+
+- **HTML** — struktur: kerangka halaman, teks, tombol, gambar. Analogi: kerangka bangunan.
+- **CSS** — tampilan: warna, ukuran, jarak, font. Analogi: cat, dekorasi, interior.
+- **JavaScript** — perilaku: respon saat diklik, perhitungan, animasi. Analogi: listrik yang membuat bangunan hidup.
+
+Tanpa CSS halaman polos, tanpa JavaScript tombol tidak bereaksi. Penting: **frontend punya logika, bukan cuma desain.**
+
+## Backend: Dapur yang Tidak Terlihat
+
+Tugas backend:
+
+- Menyimpan & mengambil data (cek saldo)
+- Menjalankan aturan bisnis (potong saldo saat beli)
+- Mengamankan data (verifikasi password login)
+- Melayani banyak pengguna sekaligus
+
+Contoh nyata: saat kamu klik "Top Up" di aplikasi kasir kampus, yang kamu lihat adalah frontend (form, tombol, animasi sukses). Yang terjadi di belakang: backend mengecek saldo, mengurangi saldo, lalu mencatat transaksi ke database. Bahasa backend umum: JavaScript (Node.js), Python, Java, Go, PHP.
+
+## Database: Gudang Penyimpanan
+
+Database seperti Excel, tapi dipakai program secara otomatis — jutaan kali sehari:
+
+- Tabel mahasiswa: nim, nama, saldo
+- Tabel transaksi: waktu, jumlah, jenis
+
+Backend menghubungkan keduanya: saat transaksi terjadi, saldo dikurangi dan satu baris baru dicatat.
+
+Kenapa database, bukan file biasa? Dicari cepat, dihitung langsung, banyak pengguna bersamaan tanpa data rusak, dan backup otomatis.
+
+## Hosting: Tempat Aplikasi Tinggal
+
+- **Laptop kamu mati saat tidur** — server menyala 24 jam
+- **Alamat internet tetap** — bisa diakses dari mana saja
+- **Melayani ratusan pengguna** — laptop biasa tidak
+
+Platform: Vercel, Netlify, Railway, AWS, Google Cloud. Catatan penting: **hosting ≠ database** — aplikasi di server, data di database. Update aplikasi tidak menghapus data.
+
+## Yang Terjadi Saat Kamu Klik Tombol
+
+```
+Frontend kirim request → Backend proses aturan → Database balas data → Frontend tampilkan hasil
+```
+
+Kamu hanya melihat langkah pertama dan terakhir. Langkah di antaranya terjadi dalam sepersekian detik di tempat lain. Analogikan pelayan restoran: membawa pesanan ke dapur, lalu kembali dengan hidangan.
+
+## Produk Nyata Batch 1 — Polanya Sama
+
+| Produk | Ide | Frontend | Backend | Database |
+|--------|-----|----------|---------|----------|
+| CampusCash | Kasir digital kantin kampus | Scan QR, top-up, dashboard | Verifikasi, potong saldo | Saldo & transaksi |
+| Sat Set Tap | Absensi RFID tanpa WiFi (LoRa) | Dashboard kehadiran | Baca kartu, cocokkan data | Mahasiswa, kartu, log |
+| SalesLedger | Catat penjualan UMKM | Form input, rekap | Validasi, hitung total | Produk, penjualan |
+
+Pahami satu → paham semuanya. Yang membedakan hanya ide dan aturan bisnisnya.
+
+## Ringkasan
+
+- Aplikasi web = frontend + backend + database + hosting
+- Analogi restoran: ruang makan, dapur, gudang, lokasi
+- Klik tombol → request → proses → response
+- Produk batch 1 polanya sama semua
+
+## Latihan
+
+1. Pilih aplikasi yang kamu pakai minggu ini — sebut frontend, backend, dan database-nya
+2. Gambar alur request-response saat login ke LMS kampus
+3. Jelaskan pakai analogi restoran: kenapa aplikasi tetap jalan saat HP mati
+
+Lanjut ke [Sesi 2: AI Itu Teman Ngoding](02-ai-temen-ngoding).
