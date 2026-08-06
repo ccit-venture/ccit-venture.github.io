@@ -21,7 +21,7 @@ Landing page resmi untuk program CCIT Venture Studio - sebuah program inkubasi y
 
 Materi belajar tersedia sebagai learning modules di `/module`:
 
-- **Tech Lab** (`src/content/modules/tech-lab/`) — 6 sesi onboarding + 2 tutorial: cara kerja aplikasi, AI sebagai partner belajar, deploy, membaca codebase, produk mini, open house
+- **Tech Lab** (`src/content/modules/tech-lab/`) — 6 sesi awal prototipe dengan Stitch (desain UI mockup) + 6 sesi onboarding + 2 tutorial: cara kerja aplikasi, AI sebagai partner belajar, deploy, membaca codebase, produk mini, open house
 - **Venture Studio** (`src/content/modules/venture-studio/`) — MVP cepat, tes feedback tanpa backend, siklus bikin → tes → ubah
 
 Konten sumber (markdown lengkap) ada di direktori materi program. Tambah kategori baru cukup: buat folder di `src/content/modules/<slug>/`, daftarkan nama kategori di `src/content.config.ts` dan `categoryInfo` di halaman module.
