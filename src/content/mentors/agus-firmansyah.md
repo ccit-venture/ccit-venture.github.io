@@ -1,13 +1,13 @@
 ---
 name: "Agus Firmansyah (Iping)"
-role: "Mentor"
+role: "Guest Mentor"
 title: "Praktisi Industri"
-bio: "Praktisi industri yang membimbing mahasiswa CCIT Venture Studio dalam pengembangan produk digital. Berbagi pengalaman langsung dari dunia kerja, mulai dari engineering, product, sampai membangun venture, untuk membantu mahasiswa mentransformasi ide menjadi produk nyata."
+bio: "Praktisi industri yang diundang berkala untuk membimbing mahasiswa CCIT Venture Studio dalam pengembangan produk digital. Berbagi pengalaman langsung dari dunia kerja, mulai dari engineering, product, sampai membangun venture, untuk membantu mahasiswa mentransformasi ide menjadi produk nyata."
 linkedin: "https://www.linkedin.com/in/agusf/"
 github: ""
 email: ""
 order: 1
-type: "regular"
+type: "guest"
 ---
 
 ## Area Keahlian
